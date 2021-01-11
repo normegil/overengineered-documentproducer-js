@@ -2,7 +2,7 @@ const express = require("express");
 const server = express();
 const bodyParser = require("body-parser");
 const errors = require("./errors");
-const CommandController = require("./command");
+const DocumentController = require("./document");
 const FormatsController = require("./formats");
 
 module.exports = function initServer(producer) {
@@ -10,12 +10,12 @@ module.exports = function initServer(producer) {
   server.use(bodyParser.json());
   server.use(errors.internal);
 
-  let commandCtrl = new CommandController(producer);
+  let documentCtrl = new DocumentController(producer);
   let formatsCtrl = new FormatsController(producer);
 
   server
-    .route("/command")
-    .post((req, res) => commandCtrl.generateReport(req, res));
+    .route("/documents")
+    .post((req, res) => documentCtrl.generateReport(req, res));
 
   server
     .route("/formats/:reportName")

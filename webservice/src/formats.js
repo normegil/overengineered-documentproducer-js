@@ -1,8 +1,8 @@
 const uuid = require("uuid");
 
 module.exports = class FormatsController {
-  constructor(producer) {
-    this.producer = producer;
+  constructor(formatHandler) {
+    this.formatHandler = formatHandler;
   }
 
   async loadFormats(req, res) {
@@ -14,7 +14,7 @@ module.exports = class FormatsController {
     };
 
     try {
-      let formats = await this.producer.loadFormats(command);
+      let formats = await this.formatHandler.loadFormats(command);
       res.send(formats);
     } catch (e) {
       if (/^NotFound.*/.test(e.message)) {
@@ -24,9 +24,5 @@ module.exports = class FormatsController {
         throw e;
       }
     }
-
-    res.send({
-      id: id,
-    });
   }
 };

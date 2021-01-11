@@ -1,6 +1,6 @@
 const uuid = require("uuid");
 
-module.exports = class CommandController {
+module.exports = class DocumentController {
   constructor(producer) {
     this.producer = producer;
   }

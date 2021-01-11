@@ -16,7 +16,7 @@ describe("Rest service", function () {
     server = initServer(register);
   });
 
-  context("when an execution command is sent", function () {
+  context("when a document generation is requested", function () {
     let resp;
     let command = {
       reportName: "TestReport",
@@ -24,7 +24,7 @@ describe("Rest service", function () {
       format: "PDF",
     };
     before(async function () {
-      resp = await chai.request(server).post("/command").send(command);
+      resp = await chai.request(server).post("/documents").send(command);
     });
 
     it("should send an OK response", function () {
@@ -37,11 +37,11 @@ describe("Rest service", function () {
       });
     });
 
-    describe("when the command is sent to RabbitMQ", function () {
+    describe("when the request is sent to RabbitMQ", function () {
       it("should contain request ID", function () {
         register.lastCommand.id.should.equal(resp.body.id);
       });
-      it("should contain all original command properties", function () {
+      it("should contain all original request properties", function () {
         let mqCommand = register.lastCommand;
         for (const property in command) {
           command[property].should.equal(mqCommand[property]);
