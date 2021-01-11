@@ -1,0 +1,27 @@
+{
+  "name": "overengineerd-documentproducer-js-worker",
+  "version": "0.0.1",
+  "description": "The worker will generate the report, based on given command",
+  "scripts": {
+    "start": "node src/index.js",
+    "format": "prettier --write .",
+    "lint": "eslint",
+    "test": "eslint && mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/normegil/overengineered-documentproducer-js/webservice"
+  },
+  "author": "Olivier Ory",
+  "license": "Unlicense",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^7.17.0",
+    "mocha": "^8.2.1",
+    "prettier": "2.2.1"
+  },
+  "dependencies": {
+    "amqplib": "^0.6.0",
+    "uuid": "^8.3.2"
+  }
+}
