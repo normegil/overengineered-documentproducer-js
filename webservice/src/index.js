@@ -1,5 +1,5 @@
 const server = require("./server");
-const RabbitMQProducer = require("webservice/src/producer-rmq");
+const RabbitMQProducer = require("./producer-rmq");
 const port = 3000;
 
 let producer = new RabbitMQProducer("localhost", {

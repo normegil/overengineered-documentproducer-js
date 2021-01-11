@@ -18,6 +18,9 @@ module.exports = class Producer {
     this.channel.assertQueue(this.queue.formats, {
       durable: true,
     });
+    this.channel.assertQueue(this.queue.formats + ".replies", {
+      durable: true,
+    });
 
     this.channel.responseEmitter = new EventEmitter();
     this.channel.responseEmitter.setMaxListeners(0);
