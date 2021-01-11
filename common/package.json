@@ -1,7 +1,7 @@
 {
-  "name": "overengineerd-documentproducer-js-worker",
+  "name": "overengineerd-documentproducer-js-common",
   "version": "0.0.1",
-  "description": "The worker will generate the report, based on given command",
+  "description": "Common project will store shared code in the project",
   "scripts": {
     "start": "node src/index.js",
     "format": "prettier --write .",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/normegil/overengineered-documentproducer-js/worker"
+    "url": "https://github.com/normegil/overengineered-documentproducer-js/common"
   },
   "author": "Olivier Ory",
   "license": "Unlicense",
